@@ -6,6 +6,9 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class WorkshopPipeline(object):
+class QuotationPipeline(object):
     def process_item(self, item, spider):
+        if item['text'] is None:
+            raise Exception('Some None text field in a item dictionary')
+
         return item
